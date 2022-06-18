@@ -1,4 +1,3 @@
-
 <h1>User info</h1>
 <%= image_tag user.get_profile_image(100,100) %>
 <table class="table">
@@ -10,6 +9,22 @@
         <th>introduction</th>
         <th><%= user.introduction %></th>
     </tr>
+    <tr>
+        <th>following</th>
+        <th><%= link_to user_followings_path(user.id)  do %><%= user.followings.count %><% end %></th>
+    </tr>
+    <tr>
+        <th>followers</th>
+        <th><%= link_to user_followers_path(user.id) do %><%= user.followers.count %><% end %></th>
+    </tr>
 </table>
 
-<%= link_to "Edit", edit_user_path(user) %>
+<div class='row'>
+  <% if current_user != user %>
+    <td><%= render "relationships/btn", user: @user %></td>
+  <% else %>
+    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
+  <% end %>
+</div>
