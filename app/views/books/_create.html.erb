@@ -1,0 +1,19 @@
+<%= render "books/errors", object: @book %>
+<h1>Create Book</h1>
+<%= form_with model: book do |f| %>
+
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</div>
+
+<div class="field">
+  <%= f.label :Opinion %><br>
+  <%= f.text_field :body %>
+</div>
+
+<div class="field">
+   <%= f.submit "Create Book" %>
+</div>
+
+<% end %>
