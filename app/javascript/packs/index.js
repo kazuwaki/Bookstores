@@ -1,6 +1,6 @@
 /*global $*/
 console.log(1)
-	$(function () {
+	$(document).on ("turbolinks:load", function(){
 		const buttons = document.querySelectorAll(".btn")
 		for(const button of buttons) {
 		button.addEventListener("click", function() {
