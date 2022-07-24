@@ -1,12 +1,12 @@
 <% if book.liked_by?(current_user) %>
   <p>
-    <%= link_to book_likes_path(book),method: :delete do %>
+    <%= link_to book_likes_path(book),method: :delete, remote: true do %>
       <i class="fas fa-heart"></i><%= book.likes.count %>
     <% end %>
   </p>
 <% else %>
   <p>
-    <%= link_to book_likes_path(book),method: :post do %>
+    <%= link_to book_likes_path(book),method: :post, remote: true do %>
       <i class="far fa-heart"></i><%= book.likes.count %>
     <% end %>
   </p>

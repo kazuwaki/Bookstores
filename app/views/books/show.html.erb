@@ -18,7 +18,9 @@
     <th><%= image_tag @book.user.get_profile_image(100,100) %></th>
     <th><%= @book.title %></th>
     <th><%= @book.body %></th>
-    <th><%= render "likes/likes", book: @book %></th>
+    <th id="favorite_btn_<%= @book.id %>">
+      <%= render "likes/likes", book: @book %>
+    </th>
     <th><% if @book.user == current_user %>
       <%= link_to "Edit", edit_book_path(@book.id) %><% end %>
     </th>
