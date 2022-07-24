@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  get 'comment/create'
+  get 'comment/destroy'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "homes#top"
   get 'about' => 'homes#about'
   resources :books, only: [:index, :show, :edit, :create, :update, :destroy ] do
     resource :likes, only: [:create, :destroy ]
+    resources :comments, only: [:create, :destroy]
   end
   resources :users, only: [:index, :show, :edit, :update ] do
     resource :relationships, only: [:create, :destroy]

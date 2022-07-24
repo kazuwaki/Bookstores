@@ -5,8 +5,8 @@
       <%= render "create", book: @books %>
     </div>
     <div class='col-md-8 offset-md-1'>
-<h1>Book</h1>
-<table class="table">
+      <h1>Book</h1>
+        <table class="table">
   <tr>
     <th></th>
     <th>title</th>
@@ -29,6 +29,19 @@
     </th>
   </tr>
 </table>
+        <div class="mt-4">
+          <div>
+            <% @book.comments.each do |comment| %>
+              <p><%= comment.message %></p>
+            <% end %>
+          </div>
+        </div>
+        <div class="mt-4">
+          <%= form_with model: [@book, @comment] do |f| %>
+            <%= f.text_field :message %>
+            <%= f.submit "送信" %>
+          <% end %>
+        </div>
      </div>
   </div>
 </div>
