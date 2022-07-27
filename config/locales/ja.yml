@@ -1,0 +1,14 @@
+ ja:
+  activerecord:
+   models:
+    book: "本"
+    user: "ユーザー"
+   attributes:
+    user:
+     name: "ユーザー"
+     email: "メールアドレス"
+     password: "パスワード"
+    book: 
+     title: "タイトル"
+     body: "説明文"
+    

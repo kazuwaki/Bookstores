@@ -1,5 +1,4 @@
  <% if object.errors.any? %>
-    <h2><%= object.errors.count %> errors prohibited this book from being saved:</h2>
     <ul>
         <% object.errors.full_messages.each do |message| %>
         <li><%= message %></li>
