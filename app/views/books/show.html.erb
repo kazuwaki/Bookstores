@@ -33,6 +33,9 @@
         <div class="mt-4 comment-index">
           <%= render "comments/index", book: @book %>
         </div>
+        <div id="error_comment">
+          <%= render "books/errors", object: @comment, class: "error_comments" %>
+        </div>
         <div class="mt-4">
           <%= render "comments/create", book: @book, comment: @comment %>
         </div>
