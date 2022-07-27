@@ -18,3 +18,11 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+env :PATH, ENV['PATH']
+set :output, 'log/cron.log'
+set :environment, :development
+
+every 1.days, at: '0:00 am' do
+  runner 'Book.where("created_at < ?", 1.days.ago.beginning_of_day).delete_all'
+end

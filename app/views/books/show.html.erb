@@ -7,28 +7,29 @@
     <div class='col-md-8 offset-md-1'>
       <h1>Book</h1>
         <table class="table">
-  <tr>
-    <th></th>
-    <th>title</th>
-    <th>opinion</th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <th><%= image_tag @book.user.get_profile_image(100,100) %></th>
-    <th><%= @book.title %></th>
-    <th><%= @book.body %></th>
-    <th id="favorite_btn_<%= @book.id %>">
-      <%= render "likes/likes", book: @book %>
-    </th>
-    <th><% if @book.user == current_user %>
-      <%= link_to "Edit", edit_book_path(@book.id) %><% end %>
-    </th>
-    <th><% if @book.user == current_user %>
-      <%= link_to "destroy", @book, method: :delete, "data-confirm" => "本当に削除しますか？" %><% end %>
-    </th>
-  </tr>
-</table>
+          <tr>
+            <th></th>
+            <th>title</th>
+            <th>opinion</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th><%= image_tag @book.user.get_profile_image(100,100) %></th>
+            <th><%= @book.title %></th>
+            <th><%= @book.body %></th>
+            <th id="favorite_btn_<%= @book.id %>">
+              <%= render "likes/likes", book: @book %>
+            </th>
+            <th><% if @book.user == current_user %>
+              <%= link_to "Edit", edit_book_path(@book.id),class: "btn btn-success" %><% end %>
+            </th>
+            <th><% if @book.user == current_user %>
+              <%= link_to "destroy", @book, method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn btn-danger" %><% end %>
+            </th>
+          </tr>
+        </table>
         <div class="mt-4 comment-index">
           <%= render "comments/index", book: @book %>
         </div>
