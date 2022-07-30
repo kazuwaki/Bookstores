@@ -14,4 +14,9 @@ Rails.application.routes.draw do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
+
+  resources :posts, only: [:index, :create, :update, :edit, :destroy]
+  resources :type, only: [:index, :create, :edit, :update, :destroy]
+  resources :liqueures, only: [:index, :create, :edit, :update, :destroy]
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_24_115040) do
+ActiveRecord::Schema.define(version: 2022_07_30_231859) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -74,6 +74,12 @@ ActiveRecord::Schema.define(version: 2022_07_24_115040) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "liqueurs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "room_id", null: false
@@ -84,6 +90,15 @@ ActiveRecord::Schema.define(version: 2022_07_24_115040) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.string "body"
+    t.integer "type_id"
+    t.integer "liqueur_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -92,6 +107,18 @@ ActiveRecord::Schema.define(version: 2022_07_24_115040) do
   end
 
   create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "booktype", default: 0, null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
