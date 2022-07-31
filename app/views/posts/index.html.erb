@@ -1,2 +1,22 @@
 <h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<%= form_with model: @post do |f| %>
+<div class="form">
+  <%= f.label "投稿名"  %>
+  <%= f.text_field :name %>
+</div>
+<div class="form">
+  <%= f.label "詳細"  %>
+  <%= f.text_field :body %>
+</div>
+<div class="form">
+  <%= f.label "タイプ"  %>
+  <%= f.text_field :body %>
+</div>
+<div class="form">
+  <%= f.label "アルコール強さ"  %>
+  <%= f.text_field :body %>
+</div>
+<div class="form">
+  <%= f.submit "新規登録" %>
+</div>
+<% end %>

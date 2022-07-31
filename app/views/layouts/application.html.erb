@@ -27,6 +27,9 @@
                   <%= link_to user_path(current_user.id) do %>
                     <i class="fas fa-home"></i>Home
                   <% end %>
+                <li class="nav-link text-light">
+                  <%= link_to "投稿", posts_path %>
+                </li>
                 </li>
                 <li class="nav-link text-light">
                   <%= link_to users_path do %>
